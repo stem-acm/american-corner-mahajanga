@@ -1,0 +1,189 @@
+<section class="section bg-linear-to-br from-blue-50 to-white">
+  <div
+    class="shell grid lg:grid-cols-[minmax(0,1.25fr)_minmax(0,.85fr)] gap-10 lg:gap-14 items-center"
+  >
+    <div class="min-w-0">
+      <span class="eyebrow">Weekly program · YAS WELLO CENTER</span>
+      <h1 class="text-primary max-w-3xl mb-6">
+        Make room for learning.<br />Make connections that last.
+      </h1>
+      <p class="max-w-2xl">
+        Join free weekly workshops, practice English with our community, and explore digital
+        resources in a friendly space open to everyone.
+      </p>
+      <div class="flex flex-wrap gap-3 mt-7">
+        <span class="badge bg-white py-2">Tuesday–Saturday</span
+        ><span class="badge bg-white py-2">Clubs & community activities</span
+        ><span class="badge bg-red-50 text-secondary py-2">Closed Sundays, Mondays & holidays</span>
+      </div>
+    </div>
+    @if (featuredActivity; as activity) {
+      <figure class="min-w-0 rounded-2xl bg-white p-3 shadow-lg shadow-slate-200/70">
+        <img
+          [src]="'/images/' + activity.image"
+          [alt]="activity.title + ' — official club poster'"
+          width="575"
+          height="768"
+          fetchpriority="high"
+          class="w-full h-auto max-h-112 object-contain bg-slate-100 rounded-xl"
+        />
+        <figcaption class="px-3 py-4">
+          <strong class="block font-heading text-lg text-primary">{{ activity.title }}</strong
+          ><span class="block mt-1 text-xs text-slate-500"
+            >{{ featuredDay }} · {{ activity.time }}</span
+          >
+        </figcaption>
+      </figure>
+    }
+  </div>
+</section>
+<section class="shell section" aria-labelledby="featured-heading">
+  @if (featuredActivity; as activity) {
+    <span class="eyebrow"
+      >{{ isFeaturedToday ? "Today's highlight" : 'Next scheduled club' }} · {{ today }} in
+      Mahajanga</span
+    >
+    <h2 id="featured-heading" class="mb-6">{{ activity.title }}</h2>
+    @if (!isFeaturedToday) {
+      <p class="text-sm mb-6">
+        No regular club is listed for today. Here's the next scheduled activity.
+      </p>
+    }
+    <div
+      class="card grid md:grid-cols-2 gap-6 lg:gap-10 items-start"
+      data-testid="featured-activity"
+    >
+      <div>
+        <span class="badge mb-4">{{ activity.category }}</span>
+        <p class="mb-6">{{ activity.description }}</p>
+        <dl class="space-y-4 text-sm">
+          <div>
+            <dt class="font-semibold text-primary">When</dt>
+            <dd class="mt-1">{{ featuredDay }} · {{ activity.time }}</dd>
+          </div>
+          <div>
+            <dt class="font-semibold text-primary">Where</dt>
+            <dd class="mt-1">{{ activity.location }}</dd>
+          </div>
+        </dl>
+      </div>
+      <div class="rounded-xl bg-blue-50 p-5">
+        <h3 class="mb-3">Join the community</h3>
+        <p class="text-sm mb-5">
+          Confirm the current session with our coordinator before attending. Public holidays may
+          affect the schedule.
+        </p>
+        <a href="mailto:uscorner.mahajanga@gmail.com?subject=Club%20enquiry" class="btn"
+          >Ask about this club</a
+        >
+      </div>
+    </div>
+  }
+</section>
+<section id="activities" class="section bg-slate-100/70">
+  <div class="shell">
+    <span class="eyebrow">Explore the weekly calendar</span>
+    <h2 class="mb-6">Find your next activity</h2>
+    <div class="flex flex-wrap gap-2 mb-8" aria-label="Filter activities">
+      @for (category of categories; track category) {
+        <button
+          (click)="filter.set(category)"
+          [attr.aria-pressed]="filter() === category"
+          class="rounded-full px-5 py-2.5 text-xs font-semibold transition-colors"
+          [class]="
+            filter() === category
+              ? 'bg-primary text-white'
+              : 'bg-white text-slate-600 hover:bg-blue-100'
+          "
+        >
+          {{ category }}
+        </button>
+      }
+    </div>
+    <p class="text-xs mb-5" role="status">
+      {{ visibleSessions.length }} activities · {{ filter() }}
+    </p>
+    <div class="grid md:grid-cols-2 xl:grid-cols-3 gap-5">
+      @for (session of visibleSessions; track session.title) {
+        <article
+          class="card flex flex-col"
+          [class.border-blue-300]="session.weekdays.includes(today)"
+        >
+          <a
+            [href]="'/images/' + session.image"
+            target="_blank"
+            rel="noopener noreferrer"
+            [attr.aria-label]="'View poster for ' + session.title"
+            class="block bg-slate-100 rounded-xl mb-5 overflow-hidden"
+            ><img
+              [src]="'/images/' + session.image"
+              [alt]="session.title + ' — official American Corner poster'"
+              loading="eager"
+              decoding="async"
+              width="575"
+              height="768"
+              class="block w-full h-auto aspect-[3/4] object-contain"
+          /></a>
+          <div class="flex justify-between items-start gap-3 mb-5">
+            <span class="font-heading text-xl text-primary">{{ session.day }}</span
+            ><span class="icon shrink-0 text-primary">{{ session.icon }}</span>
+          </div>
+          <span class="badge self-start mb-4">{{ session.category }}</span>
+          <h3 class="mb-3">{{ session.title }}</h3>
+          <p class="text-sm mb-6">{{ session.description }}</p>
+          <div class="mt-auto border-t border-slate-100 pt-4">
+            <strong class="text-xs text-primary">{{ session.time }}</strong>
+            <p class="text-[11px] mt-2">{{ session.location }}</p>
+          </div>
+        </article>
+      }
+    </div>
+    <p class="text-xs mt-7">
+      Schedules above are transcribed from the club posters. Confirm current times and the next
+      radio broadcast with the coordinator before attending. Volleyball takes place off-site; the
+      center remains closed on Mondays.
+    </p>
+  </div>
+</section>
+<section id="hours" class="shell section">
+  <span class="eyebrow">Plan your visit</span>
+  <h2 class="mb-7">Official opening hours</h2>
+  <app-hours />
+  <div class="grid md:grid-cols-2 gap-6 mt-8">
+    <div class="card">
+      <h3 class="text-primary mb-4">Ready to become a member?</h3>
+      <p class="text-sm mb-5">
+        Free membership for everyone aged 6+. Register in person on Wednesday, 8 AM–noon, or
+        Saturday, noon–4 PM.
+      </p>
+      <a routerLink="/membership" class="text-link">See the step-by-step membership guide →</a>
+    </div>
+    <div class="card">
+      <h3 class="text-primary mb-4">Join a session</h3>
+      <p class="text-sm mb-5">
+        Visit the Corner during the activity's scheduled time. For availability, group visits, or
+        workshop ideas, contact our coordinator.
+      </p>
+      <a href="mailto:uscorner.mahajanga@gmail.com?subject=Activity%20enquiry" class="text-link"
+        >Ask about an activity →</a
+      >
+    </div>
+  </div>
+  <div
+    class="bg-primary text-white rounded-2xl p-8 md:p-10 mt-10 flex flex-col md:flex-row items-start md:items-center gap-6 justify-between"
+  >
+    <div>
+      <span class="eyebrow text-red-200">Community-powered learning</span>
+      <h3 class="text-2xl mb-3">Have a skill or an idea to share?</h3>
+      <p class="text-white/80 text-sm max-w-2xl">
+        Teachers, professionals, and passionate community members are welcome to propose a workshop
+        or a discussion topic.
+      </p>
+    </div>
+    <a
+      href="mailto:uscorner.mahajanga@gmail.com?subject=Workshop%20proposal"
+      class="btn btn-red shrink-0"
+      >Propose a workshop</a
+    >
+  </div>
+</section>

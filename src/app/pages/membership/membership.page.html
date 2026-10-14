@@ -1,0 +1,167 @@
+<section class="bg-linear-to-br from-blue-50 to-white section">
+  <div
+    class="shell grid lg:grid-cols-[minmax(0,1.25fr)_minmax(0,.85fr)] gap-10 lg:gap-14 items-center"
+  >
+    <div class="min-w-0">
+      <div class="flex flex-wrap gap-3 mb-6">
+        <span class="badge">Official membership guide</span
+        ><span class="badge bg-emerald-50 text-emerald-700">100% free of charge</span>
+      </div>
+      <h1 class="text-primary max-w-3xl mb-6">Become a member of American Corner Mahajanga</h1>
+      <p class="max-w-2xl">
+        Join a welcoming learning community open to everyone aged 6 and above. Enjoy free access to
+        books, English clubs, digital workshops, and educational resources.
+      </p>
+      <blockquote class="font-heading text-xl text-primary mt-7">
+        “A space to learn, connect, and grow together.”
+      </blockquote>
+      <div class="mt-8 p-4 bg-white rounded-xl text-xs text-slate-600">
+        YAS WELLO CENTER · Mahajanga Be · Opposite Magasin Éclair and the former Zapandis · Near the
+        Township Office
+      </div>
+    </div>
+    <figure class="min-w-0 rounded-2xl bg-white p-3 shadow-lg shadow-slate-200/70">
+      <img
+        src="/images/community-0.jpg"
+        alt="Learners gathered in the American Corner community room"
+        width="512"
+        height="279"
+        fetchpriority="high"
+        class="w-full aspect-[16/10] lg:aspect-[4/3] object-cover rounded-xl"
+      />
+      <figcaption class="px-3 py-4">
+        <strong class="block font-heading text-lg text-primary">Your community starts here</strong
+        ><span class="block mt-1 text-xs text-slate-500">Free membership · Ages 6 and above</span>
+      </figcaption>
+    </figure>
+  </div>
+</section>
+<section class="shell section">
+  <div class="rounded-xl bg-blue-50 p-5 flex items-start gap-4 mb-12">
+    <span class="icon text-primary">pin_drop</span>
+    <div>
+      <h3 class="text-base text-primary">Registration must be done in person</h3>
+      <p class="text-sm mt-2">
+        Bring your documents to the coordinator at reception during the registration hours below.
+      </p>
+    </div>
+  </div>
+  <span class="eyebrow">Step 1 · Times & eligibility</span>
+  <h2 class="mb-4">When can I register?</h2>
+  <p class="max-w-2xl text-sm mb-8">
+    Membership is free for Mahajanga residents. New member registrations take place during two
+    dedicated sessions each week.
+  </p>
+  <div class="grid sm:grid-cols-2 xl:grid-cols-3 gap-5">
+    <div class="card">
+      <span class="icon-box mb-5"><span class="icon">calendar_month</span></span>
+      <h3>Wednesday morning</h3>
+      <strong class="block text-primary text-2xl font-heading my-3">8:00 AM–12:00 PM</strong>
+      <p class="text-sm">Start your day with a visit to our registration desk.</p>
+    </div>
+    <div class="card">
+      <span class="icon-box bg-secondary mb-5"><span class="icon">event_available</span></span>
+      <h3>Saturday afternoon</h3>
+      <strong class="block text-primary text-2xl font-heading my-3">12:00 PM–4:00 PM</strong>
+      <p class="text-sm">A convenient weekend session for families and working professionals.</p>
+    </div>
+    <div class="card bg-blue-50">
+      <span class="icon-box bg-white text-primary mb-5"><span class="icon">face</span></span>
+      <h3>Everyone aged 6+</h3>
+      <p class="text-sm mt-3">
+        Children and young teens are welcome. Please come with a parent or guardian for your first
+        registration visit.
+      </p>
+    </div>
+  </div>
+</section>
+<section class="section bg-slate-100">
+  <div class="shell">
+    <span class="eyebrow">Step 2 · Required documents</span>
+    <h2 class="mb-4">Your membership document checklist</h2>
+    <p class="text-sm mb-8 max-w-2xl">
+      Prepare your physical documents before visiting. The coordinator will review your application
+      and issue your membership card.
+    </p>
+    <div class="grid sm:grid-cols-2 xl:grid-cols-3 gap-5">
+      @for (doc of documents; track doc[1]) {
+        <div class="card relative">
+          <span class="absolute right-5 top-4 text-5xl font-heading text-slate-100"
+            >0{{ $index + 1 }}</span
+          ><span class="icon text-primary text-3xl relative">{{ doc[0] }}</span>
+          <h3 class="mt-5 mb-2">{{ doc[1] }}</h3>
+          <span class="badge mb-4">{{ doc[2] }}</span>
+          <p class="text-sm">{{ doc[3] }}</p>
+        </div>
+      }
+    </div>
+    <div class="card mt-6 flex flex-col lg:flex-row gap-6 justify-between">
+      <div>
+        <h3>Ready-to-visit checklist</h3>
+        <p class="text-sm mt-2 mb-5">Tick each document when it is ready to bring.</p>
+        <div class="flex flex-wrap gap-3">
+          @for (doc of documents; track doc[1]) {
+            <label class="rounded-lg bg-slate-50 p-3 flex gap-3 items-center text-xs cursor-pointer"
+              ><input
+                type="checkbox"
+                class="size-4"
+                [checked]="checked()[$index]"
+                (change)="toggle($index)"
+              />{{ doc[1] }}</label
+            >
+          }
+        </div>
+      </div>
+      <div
+        class="rounded-xl p-5 bg-blue-50 text-center w-full lg:w-56 lg:shrink-0"
+        role="status"
+        aria-live="polite"
+      >
+        <span class="icon text-primary mb-2">{{
+          count === 3 ? 'task_alt' : 'pending_actions'
+        }}</span
+        ><strong class="block text-sm text-primary">{{
+          count === 3 ? 'Your documents are ready!' : 'Prepare your documents'
+        }}</strong
+        ><span class="text-xs text-slate-500">{{ count }} / 3 complete</span>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="rules" class="shell section">
+  <span class="eyebrow">Step 3 · Life at the Corner</span>
+  <h2 class="mb-4">Our house rules</h2>
+  <p class="text-sm mb-8 max-w-2xl">
+    Help us keep the Corner a welcoming, inclusive, and inspiring place for everyone.
+  </p>
+  <div class="grid md:grid-cols-2 xl:grid-cols-3 gap-5">
+    @for (rule of rules; track rule[1]) {
+      <div class="card">
+        <span class="icon-box mb-5" [class.bg-secondary]="$index === 2"
+          ><span class="icon">{{ rule[0] }}</span></span
+        >
+        <h3 class="mb-3">{{ rule[1] }}</h3>
+        <p class="text-sm">{{ rule[2] }}</p>
+      </div>
+    }
+    <div class="card bg-blue-50 flex flex-col justify-center">
+      <span class="eyebrow text-primary">A shared commitment</span>
+      <h3 class="text-primary mb-3">An inspiring place for all</h3>
+      <p class="text-sm">
+        Repeated disregard for safety, other visitors, or equipment may lead to suspension of
+        membership.
+      </p>
+    </div>
+  </div>
+  <div class="bg-primary rounded-2xl p-8 md:p-10 text-white mt-12">
+    <span class="eyebrow text-red-200">Our community motto</span>
+    <h3 class="text-2xl max-w-3xl">
+      “Together, we make the American Corner a friendly, inspiring place for learning and sharing!”
+    </h3>
+    <div class="mt-7 flex flex-wrap gap-3">
+      <a routerLink="/schedule" fragment="hours" class="btn bg-white text-primary hover:bg-blue-100"
+        >View opening hours</a
+      ><a href="mailto:uscorner.mahajanga@gmail.com" class="btn btn-red">Ask a question</a>
+    </div>
+  </div>
+</section>

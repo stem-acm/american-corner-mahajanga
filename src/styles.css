@@ -1,3 +1,57 @@
-/* You can add global styles to this file, and also import other style files */
-
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Material+Symbols+Outlined&display=swap');
 @import 'tailwindcss';
+@theme {
+  --color-primary: #00265c;
+  --color-secondary: #bb0112;
+  --color-surface: #f7f9fb;
+  --font-heading: 'Outfit', sans-serif;
+  --font-sans: 'Plus Jakarta Sans', sans-serif;
+}
+@layer base {
+  html { scroll-behavior:smooth; scroll-padding-top:110px; }
+  body { @apply bg-surface text-slate-900 font-sans antialiased; }
+  h1,h2,h3,h4 { @apply font-heading font-semibold; }
+  h1 { @apply text-3xl sm:text-4xl xl:text-5xl leading-tight tracking-tight; }
+  h2 { @apply text-2xl sm:text-3xl leading-tight tracking-tight; }
+  h3 { @apply text-xl; }
+  p { @apply text-slate-600 leading-relaxed; }
+  button,a,input,select { -webkit-tap-highlight-color:transparent; }
+  button,a { @apply transition-colors; }
+  button { cursor:pointer; }
+  a:hover { @apply text-blue-700; }
+  :focus-visible { outline:3px solid #527ed3; outline-offset:4px; }
+  input,select { @apply accent-primary; }
+}
+@layer components {
+  .shell { @apply w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12; }
+  .section { @apply py-10 sm:py-14 lg:py-20; }
+  .eyebrow { @apply text-[11px] font-bold tracking-widest uppercase text-secondary mb-3 block; }
+  .btn { @apply inline-flex items-center justify-center gap-2 max-w-full text-center whitespace-normal rounded-lg px-5 py-3 text-xs font-semibold bg-primary text-white hover:bg-blue-900 min-h-11; }
+  .btn-red { @apply bg-secondary hover:bg-red-800; }
+  .btn-light { @apply bg-slate-100 text-primary hover:bg-slate-200; }
+  .card { @apply bg-white rounded-2xl border border-slate-200/70 p-5 sm:p-6 shadow-sm; }
+  .badge { @apply inline-flex items-center gap-1 rounded-full bg-blue-50 px-3 py-1 text-[10px] text-primary font-semibold; }
+  .icon { font-family:'Material Symbols Outlined'; font-weight:normal; font-style:normal; font-size:22px; line-height:1; display:inline-block; white-space:nowrap; }
+  .icon-box { @apply w-11 h-11 rounded-xl bg-primary text-white flex items-center justify-center shrink-0; }
+  .text-link { @apply text-primary font-semibold text-xs hover:underline; }
+  .active { @apply text-primary underline underline-offset-8 decoration-2; }
+  .field { @apply block w-full rounded-lg border border-slate-300 bg-white px-4 py-3 mt-2 text-sm; }
+}
+.skip-link { position:fixed; top:-100px; left:20px; z-index:100; padding:12px; background:white; }
+.skip-link:focus { top:10px; }
+@media(prefers-reduced-motion:reduce) { html {scroll-behavior:auto} *,*::before,*::after {transition:none!important;animation:none!important} }
+
+/* Component hosts and grid children must be allowed to shrink to their column. */
+app-root, app-home, app-membership, app-schedule, app-hours, app-feature {
+  display: block;
+  min-width: 0;
+}
+.grid > *, .flex > * { min-width: 0; }
+h1, h2, h3, h4, p, strong, blockquote, figcaption { overflow-wrap: anywhere; }
+img { max-width: 100%; }
+.icon { flex-shrink: 0; width: 1em; overflow: hidden; }
+.badge { max-width: 100%; white-space: normal; }
+@media (max-width: 639px) {
+  .btn { padding-inline: 1rem; }
+  #hours table th, #hours table td { padding: .75rem .5rem; }
+}

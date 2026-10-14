@@ -1,0 +1,236 @@
+<div class="bg-blue-50 border-b border-blue-100/50">
+  <div class="shell flex flex-wrap justify-between gap-3 py-3 text-[11px]">
+    <span class="flex items-center gap-2"
+      ><span class="size-2 rounded-full bg-emerald-500"></span
+      ><strong class="uppercase tracking-wider text-primary">A space for everyone</strong
+      ><span class="hidden md:inline text-slate-500">
+        · Mahajanga Be — Free entry & free membership</span
+      ></span
+    ><a routerLink="/schedule" fragment="hours" class="text-primary font-semibold"
+      >Opening hours <span aria-hidden="true">↗</span></a
+    >
+  </div>
+</div>
+<section class="bg-linear-to-br from-white via-slate-50 to-red-50/40">
+  <div
+    class="shell section grid lg:grid-cols-[minmax(0,1.25fr)_minmax(0,.85fr)] gap-12 items-center"
+  >
+    <div>
+      <span class="badge mb-6"
+        ><span class="icon text-sm">public</span> U.S. cultural & educational partner</span
+      >
+      <h1 class="max-w-2xl mb-6">“A space to learn, connect, and grow together.”</h1>
+      <p class="max-w-xl text-base">
+        Welcome to <strong class="text-primary">American Corner Mahajanga</strong>. In the heart of
+        the city of flowers, we bring people together to explore English, technology, innovation,
+        and educational opportunities in the United States.
+      </p>
+      <div class="flex flex-wrap gap-3 mt-7">
+        <a routerLink="/membership" class="btn btn-red"
+          ><span class="icon text-lg">how_to_reg</span> Become a member</a
+        ><a routerLink="/schedule" class="btn btn-light"
+          ><span class="icon text-lg">event_available</span> Explore activities</a
+        >
+      </div>
+      <div class="grid grid-cols-3 gap-3 mt-9">
+        <div class="bg-white/80 rounded-xl p-4 border border-slate-100">
+          <strong class="font-heading text-xl text-primary">100%</strong>
+          <p class="text-[10px] mt-1">Free & open to ages 6+</p>
+        </div>
+        <div class="bg-white/80 rounded-xl p-4 border border-slate-100">
+          <strong class="font-heading text-xl text-secondary">Free</strong>
+          <p class="text-[10px] mt-1">Computer & Wi-Fi access</p>
+        </div>
+        <div class="bg-white/80 rounded-xl p-4 border border-slate-100">
+          <strong class="font-heading text-xl text-primary">USA</strong>
+          <p class="text-[10px] mt-1">EducationUSA advising</p>
+        </div>
+      </div>
+    </div>
+    <div class="rounded-2xl bg-white p-4 shadow-lg shadow-slate-200/70 lg:rotate-1">
+      <div class="relative overflow-hidden rounded-xl">
+        <img
+          src="/images/community-0.jpg"
+          alt="Learners sharing a conversation in the American Corner community room"
+          class="aspect-[4/3] w-full object-cover"
+        />
+        <div
+          class="absolute inset-x-0 bottom-0 bg-linear-to-t from-primary to-transparent px-5 pt-20 pb-5 text-white"
+        >
+          <span class="uppercase text-[9px] tracking-widest">American Corner Mahajanga</span>
+          <h3 class="mt-2">A welcoming place to learn<br />and discover the world.</h3>
+        </div>
+      </div>
+      <a routerLink="/schedule" class="flex items-center gap-3 px-2 pt-5 pb-2"
+        ><span class="icon text-primary">school</span>
+        <div>
+          <strong class="block text-sm text-primary">Your journey to U.S. study</strong>
+          <p class="text-[10px]">Free guidance & TOEFL / GRE resources</p>
+        </div>
+        <span class="ml-auto text-primary">→</span></a
+      >
+    </div>
+  </div>
+</section>
+<section class="shell section">
+  <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
+    <div>
+      <span class="eyebrow">This week's highlight</span>
+      <h2>Featured English program</h2>
+    </div>
+    <p class="text-sm max-w-sm">
+      Practice your spoken English in a relaxed, interactive setting every Wednesday afternoon.
+    </p>
+  </div>
+  <app-feature />
+</section>
+<section id="hours" class="bg-slate-100/80 section">
+  <div class="shell">
+    <span class="eyebrow text-primary">Official opening times</span>
+    <h2 class="mb-3">Make time for your next discovery</h2>
+    <p class="text-sm max-w-2xl mb-8">
+      Find a time to visit the library, use a computer, or join your favorite club.
+    </p>
+    <div class="grid lg:grid-cols-[minmax(0,2fr)_minmax(0,1fr)] gap-6">
+      <app-hours />
+      <div class="flex flex-col gap-5">
+        <div class="card">
+          <h3 class="text-primary mb-3">Membership registration</h3>
+          <p class="text-xs mb-4">
+            Register in person at the reception desk during these dedicated hours.
+          </p>
+          <div class="flex justify-between bg-slate-50 p-3 rounded-lg text-xs mb-2">
+            <strong>Wednesday</strong><span>8 AM–12 PM</span>
+          </div>
+          <div class="flex justify-between bg-slate-50 p-3 rounded-lg text-xs">
+            <strong>Saturday</strong><span>12 PM–4 PM</span>
+          </div>
+        </div>
+        <a
+          routerLink="/membership"
+          fragment="rules"
+          class="card bg-primary text-white border-primary"
+          ><h3 class="mb-3">Our house rules</h3>
+          <p class="text-white/80 text-xs">
+            “Together, we make the American Corner a friendly, inspiring place for learning and
+            sharing!”
+          </p>
+          <span class="block text-xs mt-4 font-semibold">Read the house rules →</span></a
+        >
+      </div>
+    </div>
+  </div>
+</section>
+<section class="shell section">
+  <div class="text-center max-w-2xl mx-auto mb-10">
+    <span class="eyebrow">Free opportunities</span>
+    <h2 class="mb-4">Why join American Corner Mahajanga?</h2>
+    <p class="text-sm">
+      A world of ideas, resources, and connections to help our community reach its potential.
+    </p>
+  </div>
+  <div class="grid md:grid-cols-2 xl:grid-cols-3 gap-5">
+    @for (resource of resources; track resource[1]) {
+      <a
+        [routerLink]="resource[4]"
+        [fragment]="resource[0] === 'desktop_windows' ? 'computer-access' : undefined"
+        class="rounded-xl bg-slate-100 p-7 hover:bg-blue-50 transition-colors group"
+        ><span class="icon-box mb-5" [class.bg-secondary]="$index === 1 || $index === 5"
+          ><span class="icon">{{ resource[0] }}</span></span
+        >
+        <h3 class="text-lg mb-3">{{ resource[1] }}</h3>
+        <p class="text-xs mb-5">{{ resource[2] }}</p>
+        <span class="text-[11px] font-semibold text-primary"
+          >{{ resource[3] }} <span class="ml-1">→</span></span
+        ></a
+      >
+    }
+  </div>
+  <div class="mt-14 bg-primary text-white rounded-2xl p-8 md:p-12 shadow-lg">
+    <span class="badge bg-secondary text-white mb-4">Free membership</span>
+    <h2 class="mb-3">How do I become a member?</h2>
+    <p class="text-white/80 text-sm mb-7">
+      Membership is completely free and open to everyone aged 6 and above.
+    </p>
+    <div class="grid md:grid-cols-2 gap-5">
+      <div class="rounded-xl bg-white/10 p-6">
+        <h3 class="text-base mb-4">Documents to bring</h3>
+        <ul class="space-y-3 text-sm text-white/90">
+          <li>✓ Two recent ID photographs</li>
+          <li>✓ An official residence certificate</li>
+          <li>✓ A copy of your ID card (adults only)</li>
+        </ul>
+      </div>
+      <div class="rounded-xl bg-white/10 p-6">
+        <h3 class="text-base mb-4">Register in person</h3>
+        <p class="text-white/80 text-sm">
+          Wednesday · 8:00 AM–12:00 PM<br />Saturday · 12:00 PM–4:00 PM
+        </p>
+        <a
+          routerLink="/membership"
+          class="inline-block mt-5 text-sm text-white font-semibold hover:text-blue-200"
+          >Read the membership guide →</a
+        >
+      </div>
+    </div>
+  </div>
+</section>
+<section id="visit" class="section bg-slate-100/70">
+  <div class="shell grid lg:grid-cols-2 items-center gap-12">
+    <div>
+      <span class="eyebrow">Landmarks & directions</span>
+      <h2 class="mb-5">In the heart of Mahajanga Be</h2>
+      <p class="text-sm mb-6">
+        Find us at the <strong>YAS WELLO CENTER</strong>, easily accessible on foot, by bajaj, or by
+        taxi from the city's schools and universities.
+      </p>
+      <div class="space-y-3">
+        <div class="bg-white p-4 rounded-lg text-sm">
+          <strong class="text-primary">Our building</strong>
+          <p class="text-xs">YAS WELLO CENTER · Mahajanga Be</p>
+        </div>
+        <div class="bg-white p-4 rounded-lg text-sm">
+          <strong class="text-primary">Nearby landmarks</strong>
+          <p class="text-xs">Opposite Magasin Éclair and the former Zapandis</p>
+        </div>
+        <div class="bg-white p-4 rounded-lg text-sm">
+          <strong class="text-primary">Close to the Township Office</strong>
+          <p class="text-xs">Commune Urbaine de Mahajanga</p>
+        </div>
+      </div>
+      <a
+        href="https://www.google.com/maps/search/?api=1&query=American+Corner+Mahajanga+YAS+Wello+Center"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="btn mt-6"
+        ><span class="icon text-lg">directions</span> Get directions on Google Maps</a
+      >
+    </div>
+    <div class="card p-3">
+      <iframe
+        title="Map of American Corner Mahajanga"
+        src="https://maps.google.com/maps?q=American%20Corner%20Mahajanga&t=&z=14&ie=UTF8&iwloc=&output=embed"
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        class="w-full h-80 rounded-xl border-0"
+      ></iframe>
+      <p class="text-[10px] px-3 pt-3 pb-1">Mahajanga Be · Boeny · Madagascar</p>
+    </div>
+  </div>
+</section>
+<section class="shell py-12">
+  <div
+    class="rounded-xl bg-slate-100 p-6 flex flex-col md:flex-row justify-between items-start md:items-center gap-6"
+  >
+    <div class="flex gap-4">
+      <span class="icon text-primary">contact_support</span>
+      <div>
+        <h3 class="text-base">Questions about membership or clubs?</h3>
+        <p class="text-xs mt-1">Visit during opening hours or contact our coordinator.</p>
+      </div>
+    </div>
+    <a class="btn" href="mailto:uscorner.mahajanga@gmail.com"
+      >Get in touch <span aria-hidden="true">↗</span></a
+    >
+  </div>
+</section>
