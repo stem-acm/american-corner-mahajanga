@@ -1,3 +1,4 @@
+import { ComputerAccessComponent } from '../../shared/components/computer-access/computer-access.component';
 import { Component } from '@angular/core';
 
 import { RouterLink } from '@angular/router';
@@ -5,7 +6,7 @@ import { HoursComponent } from '../../shared/components/hours/hours.component';
 import { FeatureComponent } from '../../shared/components/feature/feature.component';
 
 @Component({
-  imports: [RouterLink, HoursComponent, FeatureComponent],
+  imports: [ComputerAccessComponent, RouterLink, HoursComponent, FeatureComponent],
   selector: 'app-home',
   styleUrl: './home.page.css',
   templateUrl: './home.page.html',

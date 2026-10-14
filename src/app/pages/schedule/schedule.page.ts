@@ -1,10 +1,11 @@
+import { ComputerAccessComponent } from '../../shared/components/computer-access/computer-access.component';
 import { Component, DestroyRef, inject, signal } from '@angular/core';
 
 import { RouterLink } from '@angular/router';
 import { HoursComponent } from '../../shared/components/hours/hours.component';
 
 @Component({
-  imports: [RouterLink, HoursComponent],
+  imports: [ComputerAccessComponent, RouterLink, HoursComponent],
   selector: 'app-schedule',
   styleUrl: './schedule.page.css',
   templateUrl: './schedule.page.html',
