@@ -1,0 +1,28 @@
+services:
+  acm-public:
+    container_name: acm-public
+
+    build:
+      context: .
+      dockerfile: Dockerfile
+
+    ports:
+      - '4300:4300'
+
+    volumes:
+      - .:/app
+      - /app/node_modules/
+      - /app/.angular/
+
+    environment:
+      API_PROXY_TARGET: 'http://host.docker.internal:5002'
+      CHOKIDAR_USEPOLLING: 'true'
+      NG_CLI_ANALYTICS: 'false'
+
+    extra_hosts:
+      - 'host.docker.internal:host-gateway'
+
+    command: npm run start
+    stdin_open: true
+    tty: true
+    restart: unless-stopped
