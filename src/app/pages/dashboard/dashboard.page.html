@@ -1,0 +1,56 @@
+<div class="min-h-dvh bg-surface">
+  <header class="bg-white border-b border-slate-200">
+    <div class="shell py-5 flex flex-wrap items-center justify-between gap-4">
+      <img
+        src="/images/logo.png"
+        alt="American Corner Mahajanga"
+        width="282"
+        height="73"
+        class="w-40 h-auto"
+      /><button class="btn btn-light" (click)="logout()">Sign out</button>
+    </div>
+  </header>
+  <section class="shell section">
+    <span class="eyebrow">Staff workspace</span>
+    <h1 class="text-primary mb-4">Dashboard</h1>
+    <p class="mb-8">Welcome, {{ auth.user()?.username }}.</p>
+    <div class="flex flex-wrap justify-between items-center gap-4 mb-6">
+      <h2 class="text-xl">Community overview</h2>
+      <button class="btn" (click)="load()" [disabled]="busy()">
+        {{ busy() ? 'Loading…' : 'Refresh' }}
+      </button>
+    </div>
+    @if (error()) {
+      <p role="alert" class="rounded-xl bg-red-50 p-5 text-secondary mb-6">{{ error() }}</p>
+    }
+    @if (busy()) {
+      <p role="status" class="mb-6">Loading the latest statistics…</p>
+    }
+    @if (stats(); as data) {
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5" [attr.aria-busy]="busy()">
+        <div class="card">
+          <span class="icon-box mb-5"><span class="icon">groups</span></span>
+          <h3 class="text-base text-slate-600">Members</h3>
+          <strong class="block font-heading text-4xl text-primary mt-3">{{ data.members }}</strong>
+        </div>
+        <div class="card">
+          <span class="icon-box mb-5"><span class="icon">event</span></span>
+          <h3 class="text-base text-slate-600">Activities</h3>
+          <strong class="block font-heading text-4xl text-primary mt-3">{{
+            data.activities
+          }}</strong>
+        </div>
+        <div class="card">
+          <span class="icon-box mb-5"><span class="icon">how_to_reg</span></span>
+          <h3 class="text-base text-slate-600">Today's check-ins</h3>
+          <strong class="block font-heading text-4xl text-primary mt-3">{{
+            data.checkins.length
+          }}</strong>
+        </div>
+      </div>
+      <p class="text-xs mt-5">
+        Statistics are provided by the ACM server and reflect your account permissions.
+      </p>
+    }
+  </section>
+</div>

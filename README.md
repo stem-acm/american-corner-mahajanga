@@ -57,3 +57,20 @@ Angular CLI does not come with an end-to-end testing framework by default. You c
 ## Additional Resources
 
 For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+
+## Staff access
+
+Manually visit `/auth` and sign in with an existing ACM backend username and password.
+Successful login opens `/dashboard`. These routes have no links in the public site.
+The dashboard verifies the token with the backend before opening, including after a
+refresh. Sign out clears the tab's session. No credentials or accounts are created
+by this frontend.
+
+`npm start` proxies `/api/**` to `http://localhost:5002`. Override the backend address
+with `API_PROXY_TARGET` when starting the development server. Docker Compose uses
+`http://host.docker.internal:5002` to reach the backend through the host.
+
+For production, configure the web server to proxy `/api/` to the existing backend
+and serve `index.html` for Angular routes such as `/auth` and `/dashboard`.
+The Angular development proxy is not part of a production build. The backend must
+remain responsible for authorization; an unlinked URL alone does not restrict access.

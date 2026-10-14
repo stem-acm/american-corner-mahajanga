@@ -1,0 +1,49 @@
+<div
+  class="min-h-dvh flex items-center justify-center px-4 py-12 bg-linear-to-br from-blue-50 to-white"
+>
+  <section class="card w-full max-w-md p-6 sm:p-9" aria-labelledby="login-heading">
+    <img
+      src="/images/logo.png"
+      alt="American Corner Mahajanga"
+      width="282"
+      height="73"
+      class="w-44 h-auto mb-8"
+    />
+    <span class="eyebrow">Staff access</span>
+    <h1 id="login-heading" class="text-primary text-3xl mb-3">Welcome back</h1>
+    <p class="text-sm mb-7">Sign in with your staff username and password.</p>
+    <form (ngSubmit)="login()" #form="ngForm" class="space-y-5" [attr.aria-busy]="busy()">
+      <label class="block text-sm font-semibold"
+        >Username<input
+          class="field"
+          name="username"
+          [(ngModel)]="username"
+          autocomplete="username"
+          required
+          [disabled]="busy()"
+          autocapitalize="none"
+          spellcheck="false"
+      /></label>
+      <label class="block text-sm font-semibold"
+        >Password<input
+          class="field"
+          type="password"
+          name="password"
+          [(ngModel)]="password"
+          autocomplete="current-password"
+          required
+          [disabled]="busy()"
+      /></label>
+      @if (error()) {
+        <p role="alert" class="rounded-lg bg-red-50 text-secondary p-3 text-sm">{{ error() }}</p>
+      }
+      <button
+        class="btn w-full disabled:opacity-60 disabled:cursor-not-allowed"
+        type="submit"
+        [disabled]="busy() || form.invalid"
+      >
+        {{ busy() ? 'Signing in…' : 'Sign in' }}
+      </button>
+    </form>
+  </section>
+</div>
